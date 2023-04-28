@@ -1,5 +1,6 @@
 let noteTitle;
 let noteText;
+let noteid;
 let saveNoteBtn;
 let newNoteBtn;
 let noteList;
@@ -31,7 +32,10 @@ const getNotes = () =>
     headers: {
       'Content-Type': 'application/json',
     },
-  });
+  }).then( (res) =>{
+    // console.log("note works");
+    return res
+  })
 
 const saveNote = (note) =>
   fetch('/api/notes', {
@@ -70,6 +74,7 @@ const handleNoteSave = () => {
   const newNote = {
     title: noteTitle.value,
     text: noteText.value,
+    
   };
   saveNote(newNote).then(() => {
     getAndRenderNotes();

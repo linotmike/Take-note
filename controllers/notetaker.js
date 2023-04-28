@@ -18,20 +18,21 @@ router.post('/', (req,res) => {
         if(err){
             res.status(500).json({msg:"whoops error loading db"})
         } else{
-            const dataArr = JSON.parse(data)
-            const newNote = {
-                title : req.title,
-                id: uuid.v4(),
-                text: req.text
+            const noteArr = JSON.parse(data)
+            const newPost = {
+                title : req.body.title,
+                text: req.body.text,
+                id: uuid.v4()
 
             }
-            console.log(newNote);
-            data.push(newNote);
+            
+            //console.log(dataArr);
+            noteArr.push(newPost);
             fs.writeFile('./db/db.json', JSON.stringify(dataArr, null ,4),(err)=>{
                 if(err){
                     res.status(500).json({msg:"whoops error loading db"})
                 } else
-                return res.json(newNote);
+                return res.json(newPost);
 
             })
         }
