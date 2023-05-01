@@ -7,6 +7,7 @@ This is an application called Note Taker that can be used to write and save note
     
 ## Screenshot
 ![screenshot](./images/homepage.png)
+![screenshot](./images/screenshot.png)
 
 ## Table of Contents
 * [Installation](#installation)
