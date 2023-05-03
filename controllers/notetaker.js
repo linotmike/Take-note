@@ -28,7 +28,7 @@ router.post('/', (req,res) => {
             
             //console.log(dataArr);
             noteArr.push(newPost);
-            fs.writeFile('./db/db.json', JSON.stringify(dataArr, null ,4),(err)=>{
+            fs.writeFile('./db/db.json', JSON.stringify(noteArr, null ,4),(err)=>{
                 if(err){
                     res.status(500).json({msg:"whoops error loading db"})
                 } else
